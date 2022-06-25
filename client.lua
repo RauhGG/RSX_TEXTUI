@@ -1,5 +1,3 @@
-local maxdistance = 2
-
 function texttohtml(msg)
     msg = msg:gsub("~r~", "<span style=color:red;>")
     msg = msg:gsub("~b~", "<span style='color:rgb(0, 213, 255);'>")
@@ -22,7 +20,7 @@ function texttohtml(msg)
     msg = msg:gsub("~INPUT_RELOAD~", "<span class = 'INPUT_CONTEXT'>R</span>")
     msg = "<span style=color:currentColor>" .. msg .. "</span>"
     return msg
-    
+
 end
 
 function toggletextui(type, msg)
@@ -32,18 +30,4 @@ function toggletextui(type, msg)
     })
 end
 
-CreateThread(function()
-    while true do
-    local _sleep = 1000
-    local ply = PlayerPedId()
-    local plyCoords = GetEntityCoords(ply)
-    if #(plyCoords - vec3(213.296, -808.97, 30.99)) < 2 then
-            _sleep = 0
-            toggletextui(true, "~INPUT_CONTEXT~ Acceder al ~b~Garaje~w~")
-            else
-            toggletextui(false, "")
-                _sleep = 1000
-        end
-        Wait(_sleep)
-    end
-end)
+exports('text', toggletextui)
