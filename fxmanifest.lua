@@ -2,7 +2,7 @@ fx_version 'cerulean'
 
 games { 'gta5' }
 
-author 'RaulGG'
+author 'Cañota'
 
 client_script 'client.lua'
 
